@@ -73,6 +73,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--f", type=str, help="Input data file")
     parser.add_argument("--config", type=str, help="Configuration file")
+    parser.add_argument("--CTI", type=int, default=1, help="CTI filtering strategy: How many standard deviations over average")
+    parser.add_argument("--CCI", type=int, default=-5, help="CCI filtering strategy: Top k if k > 0; Top (-k)% if k < 0")
+
     parser.add_argument("--seed", type=int, default=42, help="Seed for random stuffs")
     parser.add_argument("--at_most_citations", type=int, default=3, help="At most take this many documents (mostly for precision)")
 
@@ -90,17 +93,18 @@ def main():
     np.random.seed(args.seed)
 
     # CTI and CCI parameters
-    topk_CTI = 1 # 1 means over average+1SD
+    topk_CTI = args.CTI
+    #topk_CTI = 1 # 1 means over average+1SD
     #topk_CTI = 0 # 0 means over average
 
-    topk_CCI = -5 # -5 means range top5%
+    topk_CCI = args.CCI
+    #topk_CCI = -5 # -5 means range top5%
     #topk_CCI = 3 # 3 means top 3
     #topk_CCI = 0 # 0 means average (not used)
     
     cite_idx_acs = False # whether MIRAGE citations in ascending order
 
     model, tokenizer = load_model(args.model)
-    
     data = json.load(open(args.f))
 
     if not args.f_with_ans:
@@ -137,7 +141,7 @@ def main():
 
 
     # Second, analyze model internals with MIRAGE
-    save_dir_mirage = './record_internals/'
+    save_dir_mirage = './internal_res/'
     if not os.path.exists(save_dir_mirage):
         os.makedirs(save_dir_mirage)
 
