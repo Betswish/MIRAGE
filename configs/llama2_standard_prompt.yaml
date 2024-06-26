@@ -1,5 +1,4 @@
 ---
-prompt_file: prompts/eli5_default_llama2_interpret.json
 model: meta-llama/Llama-2-7b-chat-hf
 temperature: 1.0
 top_p: 0.95
@@ -8,4 +7,4 @@ max_length: 4096
 
 instruction: "Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant). Use an unbiased and journalistic tone."
 demo_prompt: "{INST}\n\nQuestion: {Q}\n\n{D}\nAnswer:{A}"
-doc_prompt": "Document [{ID}](Title: {T}): {P}\n"
+doc_prompt: "Document [{ID}](Title: {T}): {P}\n"

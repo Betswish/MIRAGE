@@ -1,5 +1,4 @@
 ---
-prompt_file: prompts/eli5_default_llama2.json
 model: meta-llama/Llama-2-7b-chat-hf
 temperature: 1.0
 top_p: 0.95

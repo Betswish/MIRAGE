@@ -76,7 +76,7 @@ def main():
     parser.add_argument("--seed", type=int, default=42, help="Seed for random stuffs")
     parser.add_argument("--at_most_citations", type=int, default=3, help="At most take this many documents (mostly for precision)")
 
-    parser.add_argument("--f_with_generation", action="store_true", help="Whether input data file already has LLM generations.")
+    parser.add_argument("--f_with_ans", action="store_true", help="Whether input data file already has LLM generations.")
     parser.add_argument("--only_cite", action="store_true", help="Only re-generate citations with new CTI and CCI thresholds")
     
     args = parser.parse_args()
@@ -84,6 +84,9 @@ def main():
     parser.set_defaults(**config)
     args = parser.parse_args()
 
+    if args.only_cite:
+        assert args.f_with_ans, "--only_cite can only used when the input data contains the LLM outputs, namely setting --f_with_ans"
+    
     np.random.seed(args.seed)
 
     # CTI and CCI parameters
@@ -100,10 +103,13 @@ def main():
     
     data = json.load(open(args.f))
 
-    prefix = args.model.lower().replace('/','_') + "-" + args.f.split(".")[0] + "-" + args.config.split(".")[0].split('/')[1] + '-seed' + str(args.seed)
+    if not args.f_with_ans:
+        prefix = args.model.lower().replace('/','_') + "-" + args.f..split("/")[-1].split(".")[0] + "-" + args.config..split("/")[-1].split(".")[0] + '-seed' + str(args.seed)
+    else:
+        prefix = args.f..split("/")[-1].split(".")[0]
     # First, generate and save LLM generation
     # If already have LLM generation
-    if args.f_with_generation:
+    if args.f_with_ans:
         for idx, item in enumerate(tqdm(data)):
             item['output'] = item['output'].strip()
             for i in range(10):
@@ -125,9 +131,9 @@ def main():
                 r_tmp = "\n" * (10-i)
                 item['output'] = item['output'].replace(r_tmp, " ")
             
-    if not os.path.exists("llm_generation"):
-        os.makedirs("llm_generation")
-    json.dump(data, open("llm_generation/" + prefix + ".json", "w"), indent=4)
+    if not os.path.exists("data_input_with_ans"):
+        os.makedirs("data_input_with_ans")
+    json.dump(data, open("data_input_with_ans/" + prefix + ".json", "w"), indent=4)
 
 
     # Second, analyze model internals with MIRAGE
@@ -165,11 +171,9 @@ def main():
             input_current_text = item['question']
             input_template = args.demo_prompt.replace("{INST}", args.instruction).replace("{Q}", "{current}").replace("{A}</s>", "").replace("{A}", "").replace("{D}", "{context}").rstrip()
             contextless_input_current_text = input_template.replace("{context}", "")
-
             output_current_text = item["output"]
             
             save_path = save_dir_mirage + prefix + '-' + str(idx) + '.json'
-            
             lm_rag_prompting_example = AttributeContextArgs(
                     model_name_or_path=args.model,
                     input_context_text=input_context_text,
@@ -190,7 +194,6 @@ def main():
                         "torch_dtype": torch.float16,
                         "max_memory": get_max_memory(),
                         "load_in_8bit": False,
-                        "cache_dir": "/projects/0/prjs0888/plms/"
                         },
                     generation_kwargs={
                         "do_sample": True,
@@ -235,25 +238,22 @@ def main():
         else:
             raise ValueError('CTI filtering parameter should be equal or larger than 0.')
 
-        if "qampari" in args.f:
-            sents = [item['question'] + ' ' + x.strip() for x in item['output'].rstrip(".").split(",")]
-        else:
-            sents = sent_tokenize(output)
-        # check num and index of '\n' (i.e. <0x0A> in Llama, zephyr, mistral)
-        # num should constantly be 5
+        sents = sent_tokenize(output)
+        # check num and index of '\n' in the retrieved docs (i.e. <0x0A> in Llama, zephyr, mistral)
+        # e.g. num should constantly be 5 on ELI5
         doc_seps = np.array(res_mirage["input_context_tokens"])
         doc_seps = doc_seps == '<0x0A>'
-        #num_doc = pd.value_counts(res_mirage["input_context_tokens"])["<0x0A>"]
+        num_doc = pd.value_counts(res_mirage["input_context_tokens"])["<0x0A>"]
         
         new_output = ""
         start_pos_sent = 0
         end_pos_sent = 0
         for sent in sents:
-            # e.g. [1,3,4]
+            # e.g. original citation index: [1,3,4]
             original_ref = [int(r[1:])-1 for r in re.findall(r"\[\d+", sent)] 
             end_pos_sent = start_pos_sent + len(tokenizer.tokenize(sent))
             
-            # e.g. [0, 0, 20, 3, 0]; always length == 5
+            # e.g. Filtered CCI values for each doc, e.g. [0, 0, 20, 3, 0]; always length == num_doc
             cite_result_mirage = mirage_cite(res_mirage, cti_threshold, start_pos_sent, end_pos_sent, topk_CCI, doc_seps)
             start_pos_sent = end_pos_sent
 
@@ -261,7 +261,6 @@ def main():
                 #print("\n-----")
                 sent = remove_citations(sent)
                
-                #best_doc_id = [i for i, v in enumerate(cite_result_mirage) if v]
                 best_doc_id_tmp = {i: v for i, v in enumerate(cite_result_mirage) if v}
                 best_doc_id = list(dict(sorted(best_doc_id_tmp.items(), key=lambda item: item[1], reverse=True)).keys())
                 best_doc_id = best_doc_id[: min(args.at_most_citations, len(best_doc_id))]
@@ -274,14 +273,11 @@ def main():
                     best_doc_id_str += "[" + str(i+1) + "]"
                 sent = best_doc_id_str + " " + sent
             
-            if "qampari" in args.f:
-                new_output += sent.replace(item['question'], '').strip() + ", "
-            else:
-                new_output += sent + " "
+            new_output += sent + " "
 
         item['output'] = new_output.rstrip().rstrip(",")
         print("\n-----")
-        print("Final output: " + item['output'])
+        print("Output with MIRAGE AA:" + item['output'])
         new_data.append(item)
 
     print("num_empty:")
@@ -290,13 +286,13 @@ def main():
     data = new_data 
     
     tag = f".mirage"     
-    tag += "_CTI_" + str(topk_CTI)
-    tag += "_CCI_" + str(topk_CCI)
+    tag += f"_CTI_{topk_CTI}"
+    tag += f"_CCI_{topk_CCI}"
 
     if cite_idx_acs:
         tag += '_acs'
 
-    json.dump(data, open(args.f + f".post_hoc_cite{tag}", 'w'), indent=4)
+    json.dump(data, open(args.f + f"{tag}", 'w'), indent=4)
 
 if __name__ == "__main__":
     main()

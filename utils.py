@@ -117,7 +117,6 @@ def load_model(model_name_or_path, dtype=torch.float16, int8=False, reserve_memo
         torch_dtype=dtype,
         max_memory=get_max_memory(),
         load_in_8bit=int8,
-        cache_dir='/projects/0/prjs0888/plms/'
     )
     logger.info("Finish loading in %.2f sec." % (time.time() - start_time))
 
