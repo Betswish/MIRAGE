@@ -1,0 +1,5 @@
+{
+    "instruction": "Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant). Use an unbiased and journalistic tone.",
+    "demo_prompt": "{INST}\n\nQuestion: {Q}\n\n{D}\nAnswer:{A}",
+    "doc_prompt": "Document [{ID}](Title: {T}): {P}\n"
+}

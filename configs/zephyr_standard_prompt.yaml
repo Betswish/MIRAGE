@@ -1,0 +1,12 @@
+---
+model: HuggingFaceH4/zephyr-7b-beta
+prompt_file: prompts/eli5_default_zephyr_interpret.json
+temperature: 0.7
+top_p: 0.95
+max_new_tokens: 300
+max_length: 32768
+
+
+instruction: "Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant). Use an unbiased and journalistic tone."
+demo_prompt: "<|system|>\n{INST}</s>\n\n<|user|>\n{Q}\n\n{D}</s>\n\n<|assistant|>\n{A}</s>"
+doc_prompt: "Document [{ID}](Title: {T}): {P}\n"

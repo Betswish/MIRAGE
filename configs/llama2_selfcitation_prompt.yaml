@@ -1,0 +1,11 @@
+---
+prompt_file: prompts/eli5_default_llama2.json
+model: meta-llama/Llama-2-7b-chat-hf
+temperature: 1.0
+top_p: 0.95
+max_new_tokens: 300
+max_length: 4096
+
+instruction: "Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search results, use [1][2][3]. Cite at least one document and at most three documents in each sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of the documents."
+demo_prompt: "{INST}\n\nQuestion: {Q}\n\n{D}\nAnswer:{A}"
+doc_prompt: "Document [{ID}](Title: {T}): {P}\n"

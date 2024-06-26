@@ -1,0 +1,54 @@
+[
+    {
+        "question": "How are firms like snapchat, uber etc valued so highly while still not making a profit? Do venture capitalists not expect some form of repayment within a number of years?",
+        "docs": [
+            {
+                "title": "Is Snapchat really worth $19 billion? - CSMonitor.com",
+                "text": "reporting that the Los Angeles-based company is aiming to raise $500 million at a valuation of $16 billion to $19 billion, making it the third most highly valued tech start-up backed by venture capitalists. The Chinese handset maker Xiaomi is valued at $45 billion, while Uber is estimated to be valued at about $40 billion, according to data from CB Insights. Read MoreVC investment hits $86B thanks to Uber, Xiaomi Snapchat was valued at $10 billion in August, according to a Dow Jones report. Some of its investors from previous rounds include Benchmark, Lightspeed Venture Partners and Kleiner Perkins Caufield"
+            },
+            {
+                "title": "What Are Venture Capital Investments? \u2013 DollarsAndSense.my",
+                "text": "Ever wondered how highly valued technology giants like Google and Facebook were able to grow so fast and pay their employees so well in such a short amount of time, or how still growing start-ups like Uber are able to lose 1.2 billion US dollars in just the first half of this year alone and still command a valuation upwards of 50 billion US dollars? The answer lies with a special category of investment activity known as venture capital. Venture capitalists are professional investors who invest in a number of highly scalable high-risk technology ventures hoping to make a multi-fold"
+            },
+            {
+                "title": "Opinion | What Dara Khosrowshahi Must Do to Save Uber - The New York Times",
+                "text": "at a discount. These are troubling signs. Every start-up must one day fulfill the market\u2019s demand that it turn a profit, but Uber has never figured out how to do that. While ride sharing in some form will probably survive, it\u2019s more likely that without some drastic changes, Uber won\u2019t be around in three to five years. Mr. Khosrowshahi must avoid the mistakes of his predecessor by accepting that \u201cpivots\u201d (Silicon Valley-speak for the desperate changes troubled companies make to reassure their venture capitalist funders) are not the answer. None of the pivots Mr. Kalanick tried \u2014 like on-demand delivery"
+            },
+            {
+                "title": "Snapchat raising funding round at $19 billion valuation: Report",
+                "text": "Snapchat raising funding round at $19 billion valuation: Report The mobile messaging app Snapchat is said to be seeking funding at a $19 billion valuation, according to a report, citing a person with knowledge of the matter. Bloomberg is reporting that the Los Angeles-based company is aiming to raise $500 million at a valuation of $16 billion to $19 billion, making it the third most highly valued tech start-up backed by venture capitalists. The Chinese handset maker Xiaomi is valued at $45 billion, while Uber is estimated to be valued at about $40 billion, according to data from CB Insights."
+            },
+            {
+                "title": "Unicorns And Wall Street | MoneyTips",
+                "text": "not start showing profits soon. Even Uber, with its massive $62-billion-plus valuation, will test investor's patience if it does not start showing signs of a profit in the next few years. Cracks are starting to show in terms of pre-IPO devaluations. Dropbox and Snapchat have seen a nearly one-quarter drop in their pre-IPO valuations, while Square's pre-IPO value has dropped by approximately one-third. Larger investors and venture capitalists are sending a message to the unicorns: Outline a solid path to profits and start producing them soon, or expect your valuation to be slashed. Diving ahead with an IPO is not"
+            }
+        ],
+        "output": "[4][3] According to a report by Bloomberg, citing a source with knowledge of the matter, Snapchat is currently seeking to raise $500 million at a valuation of $16 billion to $19 billion. [1][4] This would make the Los Angeles-based mobile messaging app the third most highly valued tech start-up backed by venture capitalists, behind Chinese handset maker Xiaomi at $45 billion and Uber at approximately $40 billion, based on data from CB Insights. [5][4] However, as highlighted by a MoneyTips article, even tech giants like Uber, with a valuation of over $62 billion, will be under pressure to demonstrate profitability in the coming years. [5] In fact, cracks are already appearing in the pre-IPO valuations of companies such as Dropbox, Snapchat, and Square, which have experienced nearly a quarter and one-third drop in their respective valuations. [5] Larger investors and venture capitalists are sending a clear message to these unicorns: Outline a solid path to profits and start delivering them soon, or expect your valuation to be significantly reduced.  This highlights the need for these tech start-ups to focus on achieving profitability rather than just securing high valuations through funding rounds."
+    },
+    {
+        "question": "When data is compressed or zipped, what is actually happening to the data?",
+        "docs": [
+            {
+                "title": "Introduction to Data Compression - Data Compression | Coursera",
+                "text": "we get into the topic. so, just specific applications that, maybe are familiar for file compression. All file systems and, and disks have built-in, compression technologies. Such as, as zip, and b-zip and many others of similar type. Technologies. And the multimedia, everybody's familiar with, the JPEG and MP3 and MPEG, and all those sorts of things for images, sound and video. Those are all about data compression. and for communication, now, that's, what has, what enabled, fax, and also enables new technologies, like Skype, the ability to, reduce the, amount of data that you actually need to send. for"
+            },
+            {
+                "title": "AllSync - Directory Synchronization Software, Backup Solution",
+                "text": "done in a compressed format to save space. Its AES encryption also provides additional data protection to your ZIP files. It might be worth noting as well that you can actually divide the ZIP files into several archives when necessary. For purposes of data protection, you can be sure that AllSync will continually do this for you. Files that are deleted can still be overwritten by a copy operation or transferred to a separate backup folder. Again, this backup folder can be compressed into a ZIP file to save disk space. Or you can back up your data to the"
+            },
+            {
+                "title": "Data Security Adds an Extra Layer of Protection",
+                "text": "is over networks. However, with electronic distribution comes additional security risks not necessarily found when transferring data on physical media. There should be no compromises in security when it comes to your corporate data. ZIP, the file compression format created in 1986, has become a staple for data centers and other IT shops, with more than 20 percent of all mainframes worldwide using a ZIP solution. Compressing data into ZIP archives provides interoperability between platforms and considerable savings in DASD and bandwidth. Recently, strong security has also been added to the ZIP format. The purpose of data compression is simply"
+            },
+            {
+                "title": "An introduction to data compression",
+                "text": "you have a file that's already compressed by one compression algorithm and is stored on the file system as a .zip file, then you back that file up to another device that has compression and that file can actually get bigger. I've never tested to see how true that actually is, but I don't think that's something people need to worry terribly about. There are some people that worry too much that they're actually going to make their files better. 5. We're hearing a lot about data deduplication lately. What's the simplest way to explain the difference between compression and"
+            },
+            {
+                "title": "Compression in Audio Recordings",
+                "text": "Elliott Sound Products Compression in Audio Recordings Compression Versus Limiting Why Use Compression Peak to Average Ratio & Dynamic Range What About Lossy Data Compression? Even Worse Things That Can Happen The term compression has several meanings in audio - there is lossy data compression (e.g. MP3), lossless data compression (a wave file compressed using a Zip program), and level compression and/or limiting. In this article, I concentrate on the last form, although a few words about MP3 are in order (later). I recently read a wonderful article by a mastering engineer by the name of Bob Katz (see references,"
+            }
+        ],
+        "output": " When data is compressed or zipped, the actual process involves reducing the size of the data without compromising its integrity.  This is achieved through algorithms that remove redundant information and replace it with a smaller representation of the original data. [1][5] Compression is commonly used in file systems, disks, multimedia formats like JPEG and MP3, and communication technologies like fax and Skype to save space and reduce the amount of data that needs to be transmitted. [2] Data compression also provides additional data protection through encryption, as seen in programs like AllSync. [3][5] Strong security has been added to the ZIP format, making it a popular choice for data centers and IT shops, as it provides interoperability between platforms and significant savings in DASD and bandwidth. [1][4] However, it's essential to note that repeatedly compressing and decompressing a file may lead to increased file size due to overhead. [3] In contrast, data deduplication differs from compression as it eliminates redundant data blocks in a storage system to save space. [5] In audio recordings, compression refers to level compression and/or limiting, which reduces the dynamic range of a signal to achieve a desired sound level or prevent distortion during recording or mixing."
+    }
+]
