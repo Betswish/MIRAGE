@@ -108,9 +108,9 @@ def main():
     data = json.load(open(args.f))
 
     if not args.f_with_ans:
-        prefix = args.model.lower().replace('/','_') + "-" + args.f..split("/")[-1].split(".")[0] + "-" + args.config..split("/")[-1].split(".")[0] + '-seed' + str(args.seed)
+        prefix = args.model.lower().replace('/','_') + "-" + args.f.split("/")[-1].split(".")[0] + "-" + args.config.split("/")[-1].split(".")[0] + '-seed' + str(args.seed)
     else:
-        prefix = args.f..split("/")[-1].split(".")[0]
+        prefix = args.f.split("/")[-1].split(".")[0]
     # First, generate and save LLM generation
     # If already have LLM generation
     if args.f_with_ans:
