@@ -296,7 +296,11 @@ def main():
     if cite_idx_acs:
         tag += '_acs'
 
-    json.dump(data, open(args.f + f"{tag}", 'w'), indent=4)
 
+    save_dir_AA = './AA_res/'
+    if not os.path.exists(save_dir_AA):
+        os.makedirs(save_dir_AA)
+    json.dump(data, open(save_dir_AA + prefix + f"{tag}", 'w'), indent=4)
+    
 if __name__ == "__main__":
     main()
