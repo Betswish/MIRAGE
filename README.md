@@ -27,9 +27,13 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 > This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](github).
 
 ## Environment: 
-Python: 3.9.19
+Python: `3.9.19`
 
 Packages: `pip install -r requirements.txt`
+
+Transformers: `4.41.0.dev0`
+
+Inseq: `0.6.0.dev0`
 
 ## Quick Start
 For a quick start, you only need to put your RAG Data file in `data_input/` folder and run the following **one** command to get the LLM outputs with answer attribution (e.g. LLaMA2 with standard prompt):
