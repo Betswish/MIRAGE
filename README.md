@@ -8,7 +8,7 @@
 Authors (_* Equal contribution_): [Jirui Qi*](https://betswish.github.io/) • [Gabriele Sarti*](https://gsarti.com/) • [Raquel Fernández](https://staff.fnwi.uva.nl/r.fernandezrovira/) • [Arianna Bisazza](https://www.cs.rug.nl/~bisazza/)  
 </div>
 
-<img src="fig/mirage_illustration.png" width="400"/> 
+<img src="fig/mirage_illustration.png"/> 
 
 
 > **Abstract:** Ensuring the verifiability of model answers is a fundamental challenge for retrieval-augmented generation (RAG) in the question answering (QA) domain. Recently, self-citation prompting was proposed to make large language models (LLMs) generate citations to supporting documents along with their answers. However, self-citing LLMs often struggle to match the required format, refer to non-existent sources, and fail to faithfully reflect LLMs' context usage throughout the generation. In this work, we present MIRAGE --Model Internals-based RAG Explanations -- a plug-and-play approach using model internals for faithful answer attribution in RAG applications. MIRAGE detects context-sensitive answer tokens and pairs them with retrieved documents contributing to their prediction via saliency methods. We evaluate our proposed approach on a multilingual extractive QA dataset, finding high agreement with human answer attribution. On open-ended QA, MIRAGE achieves citation quality and efficiency comparable to self-citation while also allowing for a finer-grained control of attribution parameters. Our qualitative evaluation highlights the faithfulness of MIRAGE's attributions and underscores the promising application of model internals for RAG answer attribution.
@@ -32,13 +32,13 @@ Python: 3.9.19
 Packages: `pip install -r requirements.txt`
 
 ## Quick Start
-For a quick start, you only need to put your RAG Data file in `data_input/` folder and run the following **one** command to get the LLM outputs with answer attribution:
+For a quick start, you only need to put your RAG Data file in `data_input/` folder and run the following **one** command to get the LLM outputs with answer attribution (e.g. LLaMA2 with standard prompt):
 
 ```
-python mirage.py --f data_input/example.json --config configs/llama2_standard_prompt.yaml
+python mirage.py --f data_input/EXAMPLE.json --config configs/llama2_standard_prompt.yaml
 ```
 
-The data file should be in JSON format. For example, if you have two questions, each provided with two retrieved docs:
+The data file should be in JSON format. For example, suppose you have two questions, each provided with two retrieved docs:
 ```json
 [
   {
@@ -69,7 +69,9 @@ The data file should be in JSON format. For example, if you have two questions, 
   }
 ]
 ```
-The LLM outputs will be saved in the folder `data_input_with_ans/`, and the model internals obtained by MIRAGE will be saved in `internal_res/`.
+The data with LLM's raw outputs will be saved in the folder `data_input_with_ans/`, and the attributed answers will be saved in `data_input/example.json.mirage_CTI_X_CCI_X`. 
+
+You may also check `internal_res/` for the model internals obtained by MIRAGE. The internal of each instance is saved as an individual JSON file.
 
 ## Full functions
 The all parameters for `mirage.py` are listed below:
@@ -78,12 +80,44 @@ The all parameters for `mirage.py` are listed below:
 - `CTI`: CTI threshold. This means how many standard deviations over average, default `1`.
 - `CCI`: CCI threshold. Using Top k strategy if k > 0; otherwise Top (-k)% if k < 0.
 
-## Advanced Functions
-If you already have LLM generations in the data file, put it in the `data_input_with_ans` and specify the parameter `f_with_ans`.
-
+#### Advanced Functions
+If you already have LLM generations (e.g. LLaMA2 with standard prompt) in the data file, like:
+```json
+[
+  {
+    "question": "YOUR QUESTION",
+    "docs": [
+      {
+        "title": "TITLE OF RETRIEVED DOC",
+        "text": "TEXT OF RETRIEVED DOC"
+      },
+      {
+        "title": "TITLE OF RETRIEVED DOC",
+        "text": "TEXT OF RETRIEVED DOC"
+      }
+    ],
+    "output": "LLM GENERATED ANSWER"
+  },
+  {
+    "question": "YOUR QUESTION",
+    "docs": [
+      {
+        "title": "TITLE OF RETRIEVED DOC",
+        "text": "TEXT OF RETRIEVED DOC"
+      },
+      {
+        "title": "TITLE OF RETRIEVED DOC",
+        "text": "TEXT OF RETRIEVED DOC"
+      }
+    ],
+    "output": "LLM GENERATED ANSWER"
+  }
+]
+```
+put it in the `data_input_with_ans/` folder and specify `--f_with_ans`.
 ```bash
 mkdir data_input_with_ans
-python mirage.py --f data_input_with_ans --config configs/llama2_standard_prompt.yaml --f_with_ans
+python mirage.py --f data_input_with_ans/EXAMPLE_WITH_ANS.json --config configs/llama2_standard_prompt.yaml --f_with_ans
 ```
 
 
