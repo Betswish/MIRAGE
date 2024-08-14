@@ -24,7 +24,7 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 ```
 
 > [!TIP] 
-> This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](github).
+> This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](https://github.com/Betswish/MIRAGE-reproduce).
 
 ## Environment: 
 Python: `3.9.19`
