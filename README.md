@@ -8,6 +8,9 @@
 Authors (_* Equal contribution_): [Jirui Qi*](https://betswish.github.io/) • [Gabriele Sarti*](https://gsarti.com/) • [Raquel Fernández](https://staff.fnwi.uva.nl/r.fernandezrovira/) • [Arianna Bisazza](https://www.cs.rug.nl/~bisazza/)  
 </div>
 
+<h2>$$\text{\bf \color{orange}Latest update: Our paper has been accepted by the EMNLP 2024 Main Conference! 🎉}$$  </h2>
+
+
 <img src="fig/mirage_illustration.png"/> 
 
 
@@ -23,7 +26,7 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 }
 ```
 
-> [!TIP] 
+> [!NOTE] 
 > This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](https://github.com/Betswish/MIRAGE-reproduce).
 
 ## Environment: 
