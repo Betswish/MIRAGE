@@ -4,11 +4,13 @@
 </div>
 <br/>
 <div align="center">
-  
+
+**Latest update:** Our [paper](https://arxiv.org/abs/2406.13663) has been accepted by the [EMNLP 2024](https://2024.emnlp.org/) Main Conference! 🎉
+
+
 Authors (_* Equal contribution_): [Jirui Qi*](https://betswish.github.io/) • [Gabriele Sarti*](https://gsarti.com/) • [Raquel Fernández](https://staff.fnwi.uva.nl/r.fernandezrovira/) • [Arianna Bisazza](https://www.cs.rug.nl/~bisazza/)  
 </div>
 
-<h3>$$\text{\color{orange}Latest update: Our paper has been accepted by the EMNLP 2024 Main Conference! 🎉}$$  </h3>
 
 
 <img src="fig/mirage_illustration.png"/> 
