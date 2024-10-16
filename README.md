@@ -8,7 +8,7 @@
 Authors (_* Equal contribution_): [Jirui Qi*](https://betswish.github.io/) • [Gabriele Sarti*](https://gsarti.com/) • [Raquel Fernández](https://staff.fnwi.uva.nl/r.fernandezrovira/) • [Arianna Bisazza](https://www.cs.rug.nl/~bisazza/)  
 </div>
 
-<h2>$$\text{\bf \color{orange}Latest update: Our paper has been accepted by the EMNLP 2024 Main Conference! 🎉}$$  </h2>
+<h3>$$\text{\color{orange}Latest update: Our paper has been accepted by the EMNLP 2024 Main Conference! 🎉}$$  </h3>
 
 
 <img src="fig/mirage_illustration.png"/> 
