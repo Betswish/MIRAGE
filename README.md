@@ -34,11 +34,6 @@ You can easily load our environment with Conda:
 ```
 conda env create -f MIRAGE.yaml
 ```
-Python: `3.9.19`
-
-Transformers: `4.41.0.dev0`
-
-Inseq: `0.6.0.dev0`
 
 ## Quick Start
 For a quick start, you only need to put your RAG Data file in `data_input/` folder and run the following **one** command to get the LLM outputs with answer attribution (e.g. LLaMA2 with standard prompt):
