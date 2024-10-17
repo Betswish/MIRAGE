@@ -30,9 +30,11 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 ```
 
 ## Environment: 
+You can easily load our environment with Conda:
+```
+conda env create -f MIRAGE.yaml
+```
 Python: `3.9.19`
-
-Packages: `pip install -r requirements.txt`
 
 Transformers: `4.41.0.dev0`
 
