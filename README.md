@@ -30,10 +30,16 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 ```
 
 ## Environment: 
-You can easily load our environment with Conda:
+You may easily load our environment with Conda:
 ```
 conda env create -f MIRAGE.yaml
 ```
+
+Or, you can install all packages by yourself:
+
+Python: `3.9.19`
+
+Packages: `pip install -r requirements.txt`
 
 ## Quick Start
 For a quick start, you only need to put your RAG Data file in `data_input/` folder and run the following **one** command to get the LLM outputs with answer attribution (e.g. LLaMA2 with standard prompt):
