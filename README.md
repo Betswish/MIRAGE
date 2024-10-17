@@ -35,7 +35,7 @@ You may easily load our environment with Conda:
 conda env create -f MIRAGE.yaml
 ```
 
-Or, you can install all packages by yourself:
+Alternatively, you can install all packages by yourself:
 
 Python: `3.9.19`
 
