@@ -11,7 +11,8 @@
 Authors (_* Equal contribution_): [Jirui Qi*](https://betswish.github.io/) • [Gabriele Sarti*](https://gsarti.com/) • [Raquel Fernández](https://staff.fnwi.uva.nl/r.fernandezrovira/) • [Arianna Bisazza](https://www.cs.rug.nl/~bisazza/)  
 </div>
 
-
+> [!NOTE] 
+> This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](https://github.com/Betswish/MIRAGE-reproduce).
 
 <img src="fig/mirage_illustration.png"/> 
 
@@ -27,9 +28,6 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
   url={https://api.semanticscholar.org/CorpusID:270619780}
 }
 ```
-
-> [!NOTE] 
-> This repository provides an easy-to-use MIRAGE framework for analyzing the groundedness of RAG generation to the retrieved documents. To reproduce the paper results, please take a look at [this repo](https://github.com/Betswish/MIRAGE-reproduce).
 
 ## Environment: 
 Python: `3.9.19`
