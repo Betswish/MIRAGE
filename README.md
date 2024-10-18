@@ -30,7 +30,7 @@ If you find the paper helpful and use the content, we kindly suggest you cite th
 ```
 
 ## Environment: 
-You may easily load our environment with Conda:
+For a quick start, you may load our environment easily with Conda:
 ```
 conda env create -f MIRAGE.yaml
 ```
