@@ -113,7 +113,7 @@ def load_model(model_name_or_path, dtype=torch.float16, int8=False, reserve_memo
     start_time = time.time()
     model = AutoModelForCausalLM.from_pretrained(
         model_name_or_path,
-        device_map='auto',
+        device_map='cuda:0',
         torch_dtype=dtype,
         max_memory=get_max_memory(),
         load_in_8bit=int8,
